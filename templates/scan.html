@@ -1,0 +1,76 @@
+
+{% extends "base.html" %}
+
+{% block title %}Scan a Product | SHE Scan AI{% endblock %}
+
+{% block content %}
+<section class="scanner-page">
+    <div class="scanner-heading">
+        <span class="eyebrow">YOUR FOOD, EXPLAINED</span>
+        <h1>Let's look a little closer.</h1>
+        <p>Look up a packaged product or enter its ingredients to get started.</p>
+    </div>
+
+    {% if error %}
+    <div class="alert alert-error" role="alert">
+        {{ error }}
+    </div>
+    {% endif %}
+
+    <div class="scanner-grid">
+        <section class="scanner-card">
+            <div class="scanner-icon">⌗</div>
+            <h2>Look up a product</h2>
+            <p>Enter the barcode printed on the product package.</p>
+
+            <form action="{{ url_for('scan') }}" method="POST">
+                <label for="barcode">Product barcode</label>
+                <input
+                    id="barcode"
+                    name="barcode"
+                    type="text"
+                    inputmode="numeric"
+                    autocomplete="off"
+                    pattern="[0-9]{8,14}"
+                    maxlength="14"
+                    placeholder="e.g. 3017620422003"
+                >
+                <small>Enter the barcode digits without spaces.</small>
+
+                <button class="button button-primary form-button"
+                        type="submit">
+                    Find product <span>↗</span>
+                </button>
+            </form>
+        </section>
+
+        <section class="scanner-card">
+            <div class="scanner-icon">≋</div>
+            <h2>Enter ingredients</h2>
+            <p>Can't find the product? Type the ingredients from its label.</p>
+
+            <form action="{{ url_for('scan') }}" method="POST">
+                <label for="ingredients">Ingredient list</label>
+                <textarea
+                    id="ingredients"
+                    name="ingredients"
+                    rows="5"
+                    maxlength="10000"
+                    placeholder="Enter the ingredients exactly as printed on the package..."
+                ></textarea>
+                <small>Copy the label as accurately as possible.</small>
+
+                <button class="button button-primary form-button"
+                        type="submit">
+                    Review ingredients <span>↗</span>
+                </button>
+            </form>
+        </section>
+    </div>
+
+    <p class="scanner-disclaimer">
+        Product information depends on available database records.
+        Always check the original package, especially for allergens.
+    </p>
+</section>
+{% endblock %}

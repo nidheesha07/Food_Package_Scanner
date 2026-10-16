@@ -1,0 +1,136 @@
+
+{% extends "base.html" %}
+
+{% block title %}Product Results | SHE Scan AI{% endblock %}
+
+{% block content %}
+<section class="results-page">
+    <a href="{{ url_for('scan') }}" class="back-link">← Back to scanner</a>
+
+    <div class="results-heading">
+        <span class="eyebrow">YOUR PRODUCT REPORT</span>
+        <h1>Let's understand the details.</h1>
+        <p>Review the information below and verify it against the package.</p>
+    </div>
+
+    <article class="product-summary">
+        {% if product.image %}
+        <img class="product-image"
+             src="{{ product.image }}"
+             alt="Product package"
+             referrerpolicy="no-referrer">
+        {% else %}
+        <div class="product-placeholder" aria-hidden="true">✳</div>
+        {% endif %}
+
+        <div class="product-summary-info">
+            <span class="eyebrow">PRODUCT INFORMATION</span>
+            <h2>{{ product.name }}</h2>
+            <p>{{ product.brand }}</p>
+            <span class="source-label">Source: {{ product.source }}</span>
+        </div>
+    </article>
+
+    <section class="result-section">
+        <div class="result-section-heading">
+            <span class="result-number">01</span>
+            <div>
+                <h2>Ingredients</h2>
+                <p>Ingredient information provided for this product.</p>
+            </div>
+        </div>
+
+        <div class="result-panel">
+            <p class="ingredient-text">{{ product.ingredients }}</p>
+        </div>
+    </section>
+
+    <section class="result-section">
+        <div class="result-section-heading">
+            <span class="result-number">02</span>
+            <div>
+                <h2>Allergen information</h2>
+                <p>Check the listed allergen information carefully.</p>
+            </div>
+        </div>
+
+        <div class="result-panel allergen-panel">
+            <span class="allergen-icon">!</span>
+            <div>
+                <h3>Available allergen data</h3>
+                <p>{{ product.allergens }}</p>
+                <small>
+                    Missing allergen information does not mean a product
+                    is allergen-free. Check the package label.
+                </small>
+            </div>
+        </div>
+    </section>
+
+    {% if product.nutrition %}
+    <section class="result-section">
+        <div class="result-section-heading">
+            <span class="result-number">03</span>
+            <div>
+                <h2>Nutrition facts</h2>
+                <p>Values per 100 g, where provided by the database.</p>
+            </div>
+        </div>
+
+        <div class="nutrition-grid">
+            <article class="nutrition-card">
+                <span>Energy</span>
+                <strong>{{ product.nutrition.energy }}</strong>
+                <small>kcal / 100 g</small>
+            </article>
+            <article class="nutrition-card">
+                <span>Fat</span>
+                <strong>{{ product.nutrition.fat }}</strong>
+                <small>g / 100 g</small>
+            </article>
+            <article class="nutrition-card">
+                <span>Saturated fat</span>
+                <strong>{{ product.nutrition.saturated_fat }}</strong>
+                <small>g / 100 g</small>
+            </article>
+            <article class="nutrition-card">
+                <span>Carbohydrates</span>
+                <strong>{{ product.nutrition.carbohydrates }}</strong>
+                <small>g / 100 g</small>
+            </article>
+            <article class="nutrition-card">
+                <span>Sugars</span>
+                <strong>{{ product.nutrition.sugars }}</strong>
+                <small>g / 100 g</small>
+            </article>
+            <article class="nutrition-card">
+                <span>Protein</span>
+                <strong>{{ product.nutrition.protein }}</strong>
+                <small>g / 100 g</small>
+            </article>
+            <article class="nutrition-card">
+                <span>Salt</span>
+                <strong>{{ product.nutrition.salt }}</strong>
+                <small>g / 100 g</small>
+            </article>
+        </div>
+    </section>
+    {% endif %}
+
+    <div class="results-actions">
+        <a href="{{ url_for('scan') }}" class="button button-primary">
+            Check another product ↗
+        </a>
+    </div>
+
+    <div class="disclaimer results-disclaimer">
+        <span class="disclaimer-icon">i</span>
+        <p>
+            This report presents available product data, not a medical
+            assessment. Ingredients and nutrition values may be missing
+            or outdated. Verify the original label before making decisions,
+            particularly if you have a food allergy.
+        </p>
+    </div>
+</section>
+{% endblock %}

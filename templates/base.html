@@ -32,7 +32,9 @@
             <a href="{{ url_for('home') }}">Home</a>
             <a href="#how-it-works">How it works</a>
             <a href="#features">Features</a>
-            <a class="nav-cta" href="#scan">Try food scan <span>↗</span></a>
+            <a class="nav-cta" href="{{ url_for('scan') }}">
+                Try food scan <span>↗</span>
+            </a>       
         </nav>
     </header>
 
