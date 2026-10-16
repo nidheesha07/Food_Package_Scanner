@@ -1,0 +1,68 @@
+:root {
+  /* Backgrounds */
+  --bg-primary: #0a0a14;
+  --bg-secondary: #12121f;
+  --bg-surface: #181729;
+  --bg-gradient: radial-gradient(circle at 50% 0%, #1c142c 0%, #0d0c18 50%, #08080f 100%);
+  --bg-overlay: rgba(8, 8, 15, 0.75);
+
+  /* Brand Accents - Soft Rose & Serene Lavender */
+  --accent-rose: #e88fa7;
+  --accent-rose-hover: #f0a3b8;
+  --accent-rose-glow: rgba(232, 143, 167, 0.3);
+  --accent-rose-soft: rgba(232, 143, 167, 0.12);
+
+  --accent-lavender: #c4b5fd;
+  --accent-lavender-glow: rgba(196, 181, 253, 0.25);
+  --accent-lavender-soft: rgba(196, 181, 253, 0.1);
+
+  /* Typography / Text */
+  --text-primary: #f5f4fb;
+  --text-secondary: #a6a3be;
+  --text-muted: #6e6a88;
+  --text-on-accent: #120917;
+
+  /* Verdict Colors — ONLY strong colors in the app */
+  --verdict-green: #34d399;
+  --verdict-green-glow: rgba(52, 211, 153, 0.4);
+  --verdict-green-soft: rgba(52, 211, 153, 0.12);
+
+  --verdict-yellow: #fbbf24;
+  --verdict-yellow-glow: rgba(251, 191, 36, 0.4);
+  --verdict-yellow-soft: rgba(251, 191, 36, 0.12);
+
+  --verdict-red: #f87171;
+  --verdict-red-glow: rgba(248, 113, 113, 0.4);
+  --verdict-red-soft: rgba(248, 113, 113, 0.12);
+
+  --verdict-grey: #9ca3af;
+  --verdict-grey-glow: rgba(156, 163, 175, 0.3);
+  --verdict-grey-soft: rgba(156, 163, 175, 0.12);
+
+  /* Glassmorphism */
+  --glass-bg: rgba(255, 255, 255, 0.04);
+  --glass-bg-hover: rgba(255, 255, 255, 0.07);
+  --glass-bg-active: rgba(255, 255, 255, 0.1);
+  --glass-border: rgba(255, 255, 255, 0.08);
+  --glass-border-focus: rgba(232, 143, 167, 0.4);
+  --glass-blur: 16px;
+
+  /* Radii */
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 20px;
+  --radius-xl: 28px;
+  --radius-full: 9999px;
+
+  /* Shadows */
+  --shadow-card: 0 10px 30px -5px rgba(0, 0, 0, 0.5), 0 0 1px 1px rgba(255, 255, 255, 0.05);
+  --shadow-float: 0 20px 40px -10px rgba(0, 0, 0, 0.7);
+  --shadow-glow-rose: 0 0 25px var(--accent-rose-glow);
+  --shadow-glow-green: 0 0 30px var(--verdict-green-glow);
+  --shadow-glow-yellow: 0 0 30px var(--verdict-yellow-glow);
+  --shadow-glow-red: 0 0 30px var(--verdict-red-glow);
+
+  /* Layout */
+  --max-app-width: 480px;
+  --bottom-nav-height: 72px;
+}
