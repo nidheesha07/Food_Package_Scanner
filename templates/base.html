@@ -1,0 +1,31 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Connectly{% endblock %}</title>
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <header class="navbar">
+        <a href="{{ url_for('home') }}" class="logo">connectly<span>.</span></a>
+
+        <nav>
+            <a href="{{ url_for('home') }}">Home</a>
+            <a href="#explore">Explore</a>
+            <a href="#about">About</a>
+            <a href="#join" class="nav-button">Join community</a>
+        </nav>
+    </header>
+
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+
+    <footer class="footer">
+        <p>Connectly — A community for everyone.</p>
+    </footer>
+</body>
+</html>
